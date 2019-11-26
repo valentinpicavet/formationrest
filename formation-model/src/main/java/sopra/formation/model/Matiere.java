@@ -10,20 +10,28 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "subject")
 public class Matiere {
 	@EmbeddedId
+	@JsonView(Views.ViewCommon.class)
 	private MatiereId id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "duration")
+	@JsonView(Views.ViewCommon.class)
 	private Integer duree;
 	@Column(name = "requirement")
+	@JsonView(Views.ViewCommon.class)
 	private String preRequis;
 	@Column(name = "objectives")
+	@JsonView(Views.ViewCommon.class)
 	private String objectifs;
 	@Column(name = "program")
+	@JsonView(Views.ViewCommon.class)
 	private String programme;
 	@ManyToMany(mappedBy = "competences")
 	private List<Formateur> formateurs = new ArrayList<Formateur>();
