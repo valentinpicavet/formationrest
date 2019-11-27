@@ -21,4 +21,12 @@ public class Views {
 	public static class ViewMatiere extends ViewCommon {}
 	
 	public static class ViewMatiereDetail extends ViewMatiere {}
+	
+public static class ViewFormateur extends ViewCommon {}
+	
+	public static class ViewFormateurFiliere extends ViewCommon {}
+	
+	public static class ViewFormateurModule extends ViewCommon {}
+	
+	public static class ViewFormateurCompetence extends ViewCommon {}
 }
