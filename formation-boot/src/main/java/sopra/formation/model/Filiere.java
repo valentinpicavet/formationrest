@@ -17,24 +17,33 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "training", uniqueConstraints = { @UniqueConstraint(columnNames = { "title", "startdate" }) })
 public class Filiere {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "title")
+	@JsonView(Views.ViewCommon.class)
 	private String intitule;
 	@Column(name = "prom")
+	@JsonView(Views.ViewCommon.class)
 	private String promotion;
 	@Column(name = "startdate")
+	@JsonView(Views.ViewCommon.class)
 	private Date dtDebut;
 	@Column(name = "duration")
+	@JsonView(Views.ViewCommon.class)
 	private Integer duree;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "device")
+	@JsonView(Views.ViewCommon.class)
 	private Dispositif dispositif;
 	@OneToMany(mappedBy = "filiere")
 	private List<Module> modules = new ArrayList<Module>();
