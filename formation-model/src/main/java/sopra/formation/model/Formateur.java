@@ -10,15 +10,21 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @DiscriminatorValue("trainer")
 public class Formateur extends Personne {
+	@JsonView(Views.ViewCommon.class)
 	private int experience;
 	@OneToMany(mappedBy = "referent")
+	@JsonView(Views.ViewFormateurFiliere.class)
 	private List<Filiere> filieres = new ArrayList<Filiere>();
 	@OneToMany(mappedBy = "formateur")
+	@JsonView(Views.ViewFormateurModule.class)
 	private List<Module> modules = new ArrayList<Module>();
 	@ManyToMany
+	@JsonView(Views.ViewFormateurCompetence.class)
 	@JoinTable(name = "skill", joinColumns = @JoinColumn(name = "trainer_id"), inverseJoinColumns = {
 			@JoinColumn(name = "subject_name", referencedColumnName = "name"),
 			@JoinColumn(name = "subject_level", referencedColumnName = "level") })

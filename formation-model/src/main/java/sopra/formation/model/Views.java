@@ -11,14 +11,11 @@ public class Views {
 	
 	public static class ViewStagiaireDetail extends ViewStagiaire {}
 	
-	public static class ViewSalle extends ViewCommon {}
+	public static class ViewFormateur extends ViewCommon {}
 	
+	public static class ViewFormateurFiliere extends ViewCommon {}
 	
-	public static class ViewModule extends ViewCommon {}
+	public static class ViewFormateurModule extends ViewCommon {}
 	
-	public static class ViewModuleDetail extends ViewModule {}
-	
-	public static class ViewMatiere extends ViewCommon {}
-	
-	public static class ViewMatiereDetail extends ViewMatiere {}
+	public static class ViewFormateurCompetence extends ViewCommon {}
 }

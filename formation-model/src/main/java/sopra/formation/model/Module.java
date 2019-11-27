@@ -2,7 +2,6 @@ package sopra.formation.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
@@ -10,40 +9,30 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
-import com.fasterxml.jackson.annotation.JsonView;
-
 @Entity
 @Table(name = "module")
 public class Module {
 	@Id
-	@JsonView(Views.ViewCommon.class)
 	private Integer code;
 	@Version
-	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "duration")
-	@JsonView(Views.ViewCommon.class)
 	private Integer duree;
 	@Column(name = "position")
-	@JsonView(Views.ViewCommon.class)
 	private Integer ordre;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "training_id")
-	@JsonView(Views.ViewModuleDetail.class)
 	private Filiere filiere;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "trainer_id")
-	@JsonView(Views.ViewModuleDetail.class)
 	private Formateur formateur;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumns({ @JoinColumn(name = "subject_name", referencedColumnName = "name"),
 			@JoinColumn(name = "subject_level", referencedColumnName = "level") })
-	@JsonView(Views.ViewModuleDetail.class)
 	private Matiere matiere;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumns({ @JoinColumn(name = "classroom_name", referencedColumnName = "name"),
 			@JoinColumn(name = "classroom_capacity", referencedColumnName = "capacity") })
-	@JsonView(Views.ViewModuleDetail.class)
 	private Salle salle;
 
 	public Module() {

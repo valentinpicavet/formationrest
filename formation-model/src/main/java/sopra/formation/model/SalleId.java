@@ -10,14 +10,6 @@ public class SalleId implements Serializable {
 	public SalleId() {
 		super();
 	}
-	
-
-	public SalleId(String nom, Integer capacite) {
-		super();
-		this.nom = nom;
-		this.capacite = capacite;
-	}
-
 
 	public String getNom() {
 		return nom;
