@@ -14,44 +14,44 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.formation.model.Evaluation;
+import sopra.formation.model.Filiere;
 import sopra.formation.model.Views;
-import sopra.formation.repository.IEvaluationRepository;
+import sopra.formation.repository.IFiliereRepository;
 
 @RestController
-@RequestMapping("/evaluation")
+@RequestMapping("/filiere")
 public class FiliereController {
 	@Autowired
-	private IEvaluationRepository evaluationRepo;
+	private IFiliereRepository filiereRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewEvaluation.class)
-	public List<Evaluation> list() {
-		List<Evaluation> evaluations = evaluationRepo.findAll();
+	@JsonView(Views.ViewFiliere.class)
+	public List<Filiere> list() {
+		List<Filiere> filieres = filiereRepo.findAll();
 
-		return evaluations;
+		return filieres;
 	}
 
-	@GetMapping("/{id}")
-	@JsonView(Views.ViewEvaluationDetail.class)
-	public Evaluation find(@PathVariable Long id) {
-		Evaluation evaluation = evaluationRepo.findWithStagiaire(id);
-
-		return evaluation;
-	}
+//	@GetMapping("/{id}")
+//	@JsonView(Views.ViewFiliereDetail.class)
+//	public Filiere find(@PathVariable Long id) {
+//		Filiere filiere = filiereRepo.findWithStagiaire(id);
+//
+//		return filiere;
+//	}
 
 	@PostMapping("")
-	public Evaluation create(@RequestBody Evaluation evaluation) {
-		return evaluationRepo.save(evaluation);
+	public Filiere create(@RequestBody Filiere filiere) {
+		return filiereRepo.save(filiere);
 	}
 
 	@PutMapping("/{id}")
-	public Evaluation update(@RequestBody Evaluation evaluation, @PathVariable Long id) {
-		return evaluationRepo.save(evaluation);
+	public Filiere update(@RequestBody Filiere filiere, @PathVariable Long id) {
+		return filiereRepo.save(filiere);
 	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		evaluationRepo.deleteById(id);
+		filiereRepo.deleteById(id);
 	}
 }
