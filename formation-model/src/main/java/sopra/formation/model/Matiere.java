@@ -34,6 +34,7 @@ public class Matiere {
 	@JsonView(Views.ViewCommon.class)
 	private String programme;
 	@ManyToMany(mappedBy = "competences")
+	@JsonView(Views.ViewMatiereDetail.class)
 	private List<Formateur> formateurs = new ArrayList<Formateur>();
 
 	public Matiere() {

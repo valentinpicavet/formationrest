@@ -17,4 +17,8 @@ public class Views {
 	public static class ViewModule extends ViewCommon {}
 	
 	public static class ViewModuleDetail extends ViewModule {}
+	
+	public static class ViewMatiere extends ViewCommon {}
+	
+	public static class ViewMatiereDetail extends ViewMatiere {}
 }
