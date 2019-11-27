@@ -27,4 +27,7 @@ public class Views {
 	
 	
 	public static class ViewFormateurCompetence extends ViewCommon {}
+	
+	public static class ViewSalle extends ViewCommon {}
+	
 }
