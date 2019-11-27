@@ -14,12 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.formation.model.Evaluation;
 import sopra.formation.model.Matiere;
 import sopra.formation.model.MatiereId;
 import sopra.formation.model.NiveauMatiere;
 import sopra.formation.model.Views;
-import sopra.formation.repository.IEvaluationRepository;
 import sopra.formation.repository.IMatiereRepository;
 
 @RestController
